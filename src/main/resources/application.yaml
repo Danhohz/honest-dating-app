@@ -1,0 +1,12 @@
+server:
+  port: 8080
+  address: localhost
+
+spring:
+  profiles:
+    active: default
+  liquibase:
+    clear-checksums: off
+    change-log: classpath:/db/changelog.yaml
+    enabled: true
+
