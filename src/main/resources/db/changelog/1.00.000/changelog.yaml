@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      validCheckSum: 1:any
+      author: Daniil_Khokhlov
+      changes:
+        - sqlFile:
+            encoding: UTF-8
+            relativeToChangelogFile: true
+            path: USER_DDL.sql

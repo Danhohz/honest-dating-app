@@ -7,6 +7,9 @@ spring:
     active: default
   liquibase:
     clear-checksums: off
-    change-log: classpath:/db/changelog.yaml
+    change-log: classpath:/db/changelog/changelog.yaml
     enabled: true
-
+  datasource:
+    url: jdbc:postgresql://localhost:5432/application_user
+    username: postgres
+    password: postgres
