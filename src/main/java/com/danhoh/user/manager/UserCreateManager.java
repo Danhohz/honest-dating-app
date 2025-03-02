@@ -1,7 +1,8 @@
 package com.danhoh.user.manager;
 
 import com.danhoh.user.entity.User;
-import com.danhoh.user.repository.UserRepository;
+import com.danhoh.user.service.UserService;
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
@@ -12,11 +13,11 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class UserCreateManager implements Manager<User, Mono<User>> {
 
-    private final UserRepository userRepository;
+    private final UserService userService;
 
     @Override
-    public Mono<User> process(User user) {
+    public Mono<User> process(@NotNull User user) {
         user.setId(UUID.randomUUID());
-        return userRepository.save(user);
+        return userService.save(user);
     }
 }
