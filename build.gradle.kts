@@ -12,14 +12,18 @@ repositories {
 }
 
 dependencies {
+    // reactive web
     implementation("org.springframework.boot:spring-boot-starter-webflux")
+    // liquibase
     implementation("org.liquibase:liquibase-core")
+    // datasource dependencies
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
     implementation("org.postgresql:r2dbc-postgresql")
-
+    // lombok
     annotationProcessor("org.projectlombok:lombok")
     implementation("org.projectlombok:lombok")
 
+    // test dependencies
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("io.projectreactor:reactor-test")

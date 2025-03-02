@@ -3,35 +3,38 @@ package com.danhoh.user.configuration;
 import io.r2dbc.postgresql.PostgresqlConnectionConfiguration;
 import io.r2dbc.postgresql.PostgresqlConnectionFactory;
 import io.r2dbc.spi.ConnectionFactory;
-import jakarta.annotation.PostConstruct;
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.r2dbc.core.R2dbcEntityTemplate;
 
-@Slf4j
 @Configuration
 public class DatasourceConfiguration {
 
+    @Value("${spring.r2dbc.template.host}")
+    private String host;
+    @Value("${spring.r2dbc.template.port}")
+    private Integer port;
+    @Value("${spring.r2dbc.template.database}")
+    private String database;
+    @Value("${spring.r2dbc.username}")
+    private String username;
+    @Value("${spring.r2dbc.password}")
+    private String password;
+
     @Bean
     public ConnectionFactory connectionFactory() {
-        // todo remove hardcoded values
         return new PostgresqlConnectionFactory(PostgresqlConnectionConfiguration.builder()
-                .host("localhost")
-                .port(5432)
-                .database("application_user")
-                .username("postgres")
-                .password("postgres")
+                .host(host)
+                .port(port)
+                .database(database)
+                .username(username)
+                .password(password)
                 .build());
     }
 
     @Bean
-    public R2dbcEntityTemplate r2dbcTemplate() {
+    public R2dbcEntityTemplate r2dbcEntityTemplate() {
         return new R2dbcEntityTemplate(connectionFactory());
     }
-
-    @PostConstruct
-    void init() {
-    }
-
 }
