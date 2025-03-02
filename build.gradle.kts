@@ -22,6 +22,9 @@ dependencies {
     // lombok
     annotationProcessor("org.projectlombok:lombok")
     implementation("org.projectlombok:lombok")
+    // jakarta validation
+    implementation("jakarta.validation:jakarta.validation-api:3.1.1")
+    implementation("org.hibernate.validator:hibernate-validator:8.0.0.Final")
 
     // test dependencies
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
