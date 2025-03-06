@@ -1,7 +1,7 @@
 plugins {
     id("java")
     id("org.springframework.boot") version "3.4.3"
-    id("io.spring.dependency-management") version "1.1.0"
+    id("io.spring.dependency-management") version "1.1.0" // todo look what it is
 }
 
 group = "com.danhoh.user"
@@ -19,6 +19,7 @@ dependencies {
     // datasource dependencies
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
     implementation("org.postgresql:r2dbc-postgresql")
+    implementation("org.postgresql:postgresql")
     // lombok
     annotationProcessor("org.projectlombok:lombok")
     implementation("org.projectlombok:lombok")
@@ -32,6 +33,9 @@ dependencies {
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.assertj:assertj-core:3.27.3")
     testImplementation("org.mockito:mockito-junit-jupiter:5.15.2")
+    testImplementation("org.testcontainers:postgresql:1.20.6")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("io.rest-assured:rest-assured")
 }
 
 

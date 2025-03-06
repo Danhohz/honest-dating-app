@@ -8,7 +8,6 @@ spring:
   liquibase:
     change-log: classpath:/db/changelog/changelog.yaml
     enabled: true
-
 # blocking datasource
   datasource:
     url: jdbc:postgresql://localhost:5432/application_user
