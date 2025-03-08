@@ -1,7 +1,10 @@
 package com.danhoh.user.integration;
 
+import com.danhoh.user.entity.User;
 import com.danhoh.user.repository.UserRepository;
-import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.http.ContentType;
+import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,9 +26,12 @@ public class BaseIntegrationTest {
 
     static PostgreSQLContainer<?> container = new PostgreSQLContainer<>("postgres:13-alpine");
 
+    protected static RequestSpecification requestSpecification;
+
     @BeforeAll
     static void beforeAll() {
         container.start();
+
     }
 
     @DynamicPropertySource
@@ -45,7 +51,11 @@ public class BaseIntegrationTest {
 
     @BeforeEach
     void setUp() {
-        RestAssured.baseURI = "http://localhost:" + port;
+        requestSpecification = new RequestSpecBuilder()
+                .setContentType(ContentType.JSON)
+                .setAccept(ContentType.JSON)
+                .setBaseUri("http://localhost:" + port)
+                .build();
         userRepository.deleteAll().block();
     }
 

@@ -1,12 +1,17 @@
 package com.danhoh.user.integration;
 
 import com.danhoh.user.entity.User;
-import io.restassured.http.ContentType;
+import com.danhoh.user.repository.UserRepository;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static io.restassured.RestAssured.given;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class UserCreateTest extends BaseIntegrationTest {
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Test
     void successCase() {
@@ -22,13 +27,28 @@ public class UserCreateTest extends BaseIntegrationTest {
                 .build();
 
         given()
-                .accept(ContentType.JSON)
-                .contentType(ContentType.JSON)
+                .spec(requestSpecification)
                 .body(user)
                 .when()
                 .post("/api/user/create/v1")
                 .then()
                 .statusCode(200);
+    }
 
+    @Test
+    void validationError() {
+        User user = User.builder().build();
+        given()
+        .spec(requestSpecification)
+                .body(user)
+                .when()
+                .post("/api/user/create/v1")
+                .then()
+                .statusCode(400);
+    }
+
+    @Test
+    void successClear() {
+        assertThat(userRepository.count().block()).isEqualTo(0);
     }
 }

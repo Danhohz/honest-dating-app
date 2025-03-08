@@ -3,6 +3,7 @@ package com.danhoh.user.entity;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Null;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -24,9 +25,10 @@ import java.util.UUID;
 public class User {
 
     @Null
-    // идентификатор в бд
+    // идентификатор в бд, генерируется на беке
     private UUID id;
 
+    @NotBlank
     @Size(min = 2, max = 50)
     // Отображаемое имя пользователя
     // на данный момент у нас не будет доп.полей для фамилии и отчества
@@ -34,6 +36,7 @@ public class User {
     private String name;
 
     @Size(min = 2, max = 50)
+    @NotBlank
     // логин, для аунтефикации
     private String login;
 
@@ -50,6 +53,7 @@ public class User {
     // номер телефона пользователя
     private String phone;
 
+    @NotBlank
     @Size(min = 8, max = 255)
     // пароль пользователя в зашифрованном виде
     private String password;
