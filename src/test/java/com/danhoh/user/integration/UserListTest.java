@@ -12,7 +12,7 @@ import java.util.UUID;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasSize;
 
-public class UserListManager extends BaseIntegrationTest {
+public class UserListTest extends BaseIntegrationTest {
 
     @Autowired
     private UserRepository userRepository;
