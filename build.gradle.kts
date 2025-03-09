@@ -33,9 +33,14 @@ dependencies {
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.assertj:assertj-core:3.27.3")
     testImplementation("org.mockito:mockito-junit-jupiter:5.15.2")
-    testImplementation("org.testcontainers:postgresql:1.20.6")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.rest-assured:rest-assured")
+    // testcontainers
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.testcontainers:testcontainers")
+    testImplementation("org.testcontainers:junit-jupiter")
+    testImplementation("org.testcontainers:postgresql")
+    testImplementation("org.springframework.boot:spring-boot-testcontainers")
 }
 
 
