@@ -56,6 +56,6 @@ public class UserListTest extends BaseIntegrationTest {
                 .get("/api/user/list/v1")
                 .then()
                 .statusCode(200)
-                .body("", hasSize(2));//afasdffadf
+                .body("", hasSize(2));//afasdffadfasdfasf
     }
 }
