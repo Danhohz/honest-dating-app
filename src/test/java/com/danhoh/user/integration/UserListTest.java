@@ -48,7 +48,7 @@ public class UserListTest extends BaseIntegrationTest {
     }
 
     @Test
-    void successCase() { //111asdfasdf
+    void successCase() { //111asdfasdf123123
         given()
                 .spec(requestSpecification)
                 .body(User.builder().build())
