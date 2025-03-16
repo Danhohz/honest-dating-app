@@ -13,6 +13,18 @@ pipeline {
 //     }
 
     stages {
+        stage('Skip Push Events') {
+                when {
+                    // Проверка, что событие - не push (например, PR)
+                    expression {
+                        env.GIT_EVENT_NAME != "push"
+                    }
+                }
+                steps {
+                    echo "Запуск для события: ${env.GIT_EVENT_NAME}"
+                    // Ваши шаги сборки
+                }
+            }
         // Шаг 1: Забрать код из GitHub
         stage('Checkout') {
             steps {
