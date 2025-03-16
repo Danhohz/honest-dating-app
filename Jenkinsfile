@@ -3,7 +3,7 @@ pipeline {
 
     // Триггеры (опционально)
     triggers {
-        githubPush()  // Автозапуск при пуше в GitHub
+//         githubPush()  // Автозапуск при пуше в GitHub
     }
 
     // Переменные окружения
