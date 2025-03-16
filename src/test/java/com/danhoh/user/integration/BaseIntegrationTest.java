@@ -18,7 +18,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 @Testcontainers
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class BaseIntegrationTest {//123
+public class BaseIntegrationTest {//123adfasdfas
 
     @LocalServerPort
     private Integer port;
