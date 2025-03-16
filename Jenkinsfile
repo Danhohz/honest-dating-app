@@ -7,10 +7,10 @@ pipeline {
     }
 
     // Переменные окружения
-//     environment {
+    environment {
 //         DOCKER_HUB_CREDENTIALS = credentials('docker-hub-creds')  // Пример для Docker Hub
 //         GITHUB_TOKEN = credentials('github-token')  // Токен для работы с GitHub API
-//     }
+    }
 
     stages {
         // Шаг 1: Забрать код из GitHub
