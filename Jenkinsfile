@@ -2,9 +2,9 @@ pipeline {
     agent any  // Запускать на любом доступном агенте
 
     // Триггеры (опционально)
-    triggers {
+//     triggers {
 //         githubPush()  // Автозапуск при пуше в GitHub
-    }
+//     }
 
     // Переменные окружения
 //     environment {
