@@ -6,7 +6,7 @@ pipeline {
         githubPush()  // Автозапуск при пуше в GitHub
     }
 
-    // Переменные окружения
+    // Переменные окружения12312312312312
 //     environment {
 //         DOCKER_HUB_CREDENTIALS = credentials('docker-hub-creds')  // Пример для Docker Hub
 //         GITHUB_TOKEN = credentials('github-token')  // Токен для работы с GitHub API
