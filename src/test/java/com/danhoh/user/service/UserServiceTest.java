@@ -30,5 +30,6 @@ class UserServiceTest {
         Mockito.verify(userRepository).save(user);
         User returnedUser = userMono.block();
         Assertions.assertThat(returnedUser).isNotNull().isEqualTo(user);
+        throw new RuntimeException("Opss");
     }
 }
