@@ -52,27 +52,4 @@ pipeline {
             }
         }
     }
-
-    // Постобработка
-    post {
-        success {
-            // Уведомление в GitHub о успехе
-            updateGitHubCommitStatus(
-                name: 'Jenkins Build',
-                state: 'SUCCESS',
-                context: 'jenkins/build'
-            )
-            // Отправка уведомления в Slack (пример)
-            slackSend channel: '#dev', message: "Build Success: ${env.BUILD_URL}"
-        }
-        failure {
-            // Уведомление в GitHub о провале
-            updateGitHubCommitStatus(
-                name: 'Jenkins Build',
-                state: 'FAILURE',
-                context: 'jenkins/build'
-            )
-            slackSend channel: '#dev', message: "Build Failed: ${env.BUILD_URL}"
-        }
-    }
 }
