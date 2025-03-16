@@ -23,7 +23,7 @@ pipeline {
         // Шаг 2: Сборка проекта (пример для Java/Gradle)
         stage('Build') {
             steps {
-                sh './gradlew clean build'
+                sh './gradlew --info clean build'
                 // Для Maven: sh 'mvn clean package'
             }
         }
@@ -31,7 +31,7 @@ pipeline {
         // Шаг 3: Запуск тестов
         stage('Test') {
             steps {
-                sh './gradlew test'
+                sh './gradlew --info test'
                 junit '**/build/test-results/test/*.xml'  // Публикация результатов
             }
         }
