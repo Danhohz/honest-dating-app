@@ -7,10 +7,10 @@ pipeline {
     }
 
     // Переменные окружения
-    environment {
-        DOCKER_HUB_CREDENTIALS = credentials('docker-hub-creds')  // Пример для Docker Hub
-        GITHUB_TOKEN = credentials('github-token')  // Токен для работы с GitHub API
-    }
+//     environment {
+//         DOCKER_HUB_CREDENTIALS = credentials('docker-hub-creds')  // Пример для Docker Hub
+//         GITHUB_TOKEN = credentials('github-token')  // Токен для работы с GitHub API
+//     }
 
     stages {
         // Шаг 1: Забрать код из GitHub
@@ -37,19 +37,19 @@ pipeline {
         }
 
         // Шаг 4: Сборка Docker-образа (пример)
-        stage('Docker Build') {
-            steps {
-                script {
-                    docker.build("my-app:${env.BUILD_ID}")
-                }
-            }
-        }
+//         stage('Docker Build') {
+//             steps {
+//                 script {
+//                     docker.build("my-app:${env.BUILD_ID}")
+//                 }
+//             }
+//         }
 
         // Шаг 5: Деплой (пример для Kubernetes)
-        stage('Deploy to Kubernetes') {
-            steps {
-                sh 'kubectl apply -f k8s/deployment.yaml'
-            }
-        }
+//         stage('Deploy to Kubernetes') {
+//             steps {
+//                 sh 'kubectl apply -f k8s/deployment.yaml'
+//             }
+//         }
     }
 }
