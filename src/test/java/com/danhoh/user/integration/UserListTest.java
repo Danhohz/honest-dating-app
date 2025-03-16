@@ -15,7 +15,7 @@ import static org.hamcrest.Matchers.hasSize;
 public class UserListTest extends BaseIntegrationTest {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserRepository userRepository; // 123123
 
     private User firsUser;
     private User secondUser;
